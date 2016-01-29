@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bgtest" >
+    
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:textSize="32sp"
+        android:gravity="center" 
+        android:paddingTop="20dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:textSize="24sp"
+        android:gravity="center" 
+        android:paddingTop="50dp"
+        android:textColor="#000000" />
+    
+    <TextView
+        android:id="@+id/cryptoBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cryptogram"
+        android:textSize="24sp"
+        android:gravity="center" 
+        android:paddingTop="20dp"
+        android:textColor="#000000" />
+    
+    <TextView
+        android:id="@+id/dropBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drop_quote"
+        android:textSize="24sp"
+        android:gravity="center" 
+        android:paddingTop="20dp"
+        android:textColor="#000000" />
+    
+    <TextView
+        android:id="@+id/jumbleBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jumble"
+        android:textSize="24sp"
+        android:gravity="center" 
+        android:paddingTop="20dp"
+        android:textColor="#000000" />
+
+    
+
+       
+    
+    <TextView
+        android:id="@+id/settingsBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:paddingTop="30dp"
+        android:textColor="#000000" />
+    
+    <com.groganlabs.mishmash.AlphaView
+        android:id="@+id/alpha2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</LinearLayout>
+</ScrollView>

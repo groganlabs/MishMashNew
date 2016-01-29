@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="defaultSolutions">
+        <item>THIS IS A PUZZLE.</item>
+        <item>THIS IS ALSO A PUZZLE.</item>
+        <item>THIS IS THE THIRD PUZZLE.</item>
+        <item>YET ANOTHER PUZZLE.</item>
+    </string-array>
+
+    <string-array name="availablePacks">
+        <item>Pack1</item>
+        <item>Pack2</item>
+        <item>Pack3</item>
+    </string-array>
+
+    <string-array name="packTwo">
+        <item>A PUZZLE FOR THE SECOND PACK</item>
+        <item>ANOTHER PUZZLE FOR THE SECOND PACK</item>
+        <item>THERE IS A THEME FOR THESE SECOND PACK ITEMS</item>
+        <item>YET ANOTHER PUZZLE FOR THE SECOND PACK</item>
+    </string-array>
+
+</resources>

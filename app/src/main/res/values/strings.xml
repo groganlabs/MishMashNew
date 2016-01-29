@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">MishMash!!</string>
+    <string name="app_name">MishMash</string>
+    <string name="cryptogram">Cryptogram</string>
+    <string name="drop_quote">Drop Quote</string>
+    <string name="jumble">Jumble</string>
+    <string name="play">PLAY A GAME:</string>
+    <string name="settings">Settings</string>
+    <string name="screenPref">Full Screen</string>
+    <string name="themePref">Theme</string>
+    <string name="timedPref">Timed Games</string>
+    <string name="reusePref">Reuse answers</string>
+    <string name="markAllUnused">Mark all games as unplayed</string>
+    <string name="prefCat"/>
+    <string name="screenPrefSum">Enable to hide the notification bar</string>
+    <string name="timedPrefSum">Do you want your games timed?</string>
+    <string name="test_string">Test String</string>
+    <string name="test_string2">Testing again</string>
+    <string name="reusePrefSum">Use the same solution for different puzzles</string>
+    <string name="replayPrefSum">Replay games that have already been completed, even for the same puzzle type</string>
+    <string name="replayPref">Replay completed games</string>
+    <string name="menuRestart">restartGame</string>
+    <string name="menuRestartTitle">Restart Game</string>
+    <string name="menuNewGame">newGame</string>
+    <string name="menuNewGameTitle">New Game</string>
+    <string name="menuHint">hint</string>
+    <string name="menuHintTitle">Hint</string>
+    <string name="menuMain">mainMenu</string>
+    <string name="menuMainTitle">Back to main menu</string>
+    <string name="menuSettings">settings</string>
+    <string name="menuSettingsTitle">Settings</string>
+
+</resources>

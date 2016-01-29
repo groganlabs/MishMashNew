@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center" >
+    
+	<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center" >
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="A"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="B"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="C"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="D"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="E"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="F"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="G"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="H"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="I"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="J"
+			android:gravity="center" />
+		
+	</LinearLayout>
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center" >
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="K"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="L"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="M"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="N"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="O"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="P"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="Q"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="R"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="S"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="T"
+			android:gravity="center" />
+		
+	</LinearLayout>
+	<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center" >
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text=" "
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text=" "
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="U"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="V"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="W"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="X"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="Y"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaWidth"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="Z"
+			android:gravity="center" />
+		<TextView 
+			android:layout_width="@dimen/alphaDelete"
+			android:layout_height="@dimen/alphaHeight"
+			android:text="&lt; X ]"
+			android:gravity="center" />
+	</LinearLayout>
+</LinearLayout>
