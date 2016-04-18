@@ -41,7 +41,6 @@ public abstract class Game implements Parcelable {
 		mContext = context;
 		dbHelper = new MishMashDB(mContext, MishMashDB.DB_NAME, null, MishMashDB.latestVersion);
 		if(!dbHelper.getGame(this)) {
-			//TODO: throw exception
 			throw new Exception("No more games!");
 		}
 		

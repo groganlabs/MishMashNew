@@ -8,6 +8,7 @@ import android.os.Parcelable;
 
 public class JumbleGame extends Game {
 	protected int gameType = JUMBLE_GAME;
+	protected Random random;
 
 	public JumbleGame(int game, int pack, Context context) throws Exception {
 		super(game, pack, context);
@@ -25,6 +26,9 @@ public class JumbleGame extends Game {
 
 	@Override
 	protected void createGame() {
+		System.arraycopy(solutionArr, 0, puzzleArr, 0, solutionArr.length);
+		if(random == null)
+			random = new Random();
 		int start = 0;
 		int end;
 		for(int ii = 0; ii < solutionArr.length; ii++) {
@@ -68,25 +72,22 @@ public class JumbleGame extends Game {
 			return;
 		//one letter word, no mixing needed
 		else if(start == end) {
-			game[start] = solution[start];
 			return;
 		}
 		
-		Random rand = new Random();
-		int length = end - start + 1;
-		int[] used = new int[length];
-		int newLetter;
-		
-		for(int ii = 0; ii <length; ii ++) {
-			newLetter = rand.nextInt(length);
-			while(used[newLetter] == 1) {
-				newLetter++;
-				if(newLetter == length) {
-					newLetter = 0;
-				}
-			}
-			used[newLetter] = 1;
-			game[start + ii] = solution[start + newLetter];
+		int newIndex;
+		char newLetter;
+
+		// new algorithm:
+		// start at the last letter of the word
+		// get a number between first and before the last
+		// swap those two letters
+		// continue for each
+		for(int ii = end; ii > start; ii--) {
+			newIndex = random.nextInt(ii - start) + start;
+			newLetter = game[newIndex];
+			game[newIndex] = game[ii];
+			game[ii] = newLetter;
 		}
 	}
 

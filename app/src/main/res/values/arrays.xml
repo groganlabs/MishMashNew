@@ -7,10 +7,15 @@
         <item>YET ANOTHER PUZZLE.</item>
     </string-array>
 
-    <string-array name="availablePacks">
+    <string-array name="availablePackNames">
         <item>Pack1</item>
         <item>Pack2</item>
         <item>Pack3</item>
+    </string-array>
+
+    <string-array name="availablePackDescs">
+        <item>The First Pack</item>
+        <item>The Second Pack</item>
     </string-array>
 
     <string-array name="packTwo">
