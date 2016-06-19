@@ -16,6 +16,7 @@
     <string-array name="availablePackDescs">
         <item>The First Pack</item>
         <item>The Second Pack</item>
+        <item>The Third Pack</item>
     </string-array>
 
     <string-array name="packTwo">

@@ -97,6 +97,9 @@ public class IabHelper {
     // Connection to the service
     IInAppBillingService mService;
     ServiceConnection mServiceConn;
+    // Saves whether the mServiceConn binding was successful
+    // Which might have been an issue only on the emulator
+    boolean mIsBound = false;
 
     // The request code used to launch purchase flow
     int mRequestCode;
@@ -264,9 +267,11 @@ public class IabHelper {
 
         Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
-        if (!mContext.getPackageManager().queryIntentServices(serviceIntent, 0).isEmpty()) {
+        if (mContext.getPackageManager().queryIntentServices(serviceIntent, 0) != null && !mContext.getPackageManager().queryIntentServices(serviceIntent, 0).isEmpty()) {
             // service available to handle that Intent
-            mContext.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+            if(mContext.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE))
+                mIsBound = true;
+
         }
         else {
             // no service available to handle that Intent
@@ -289,7 +294,7 @@ public class IabHelper {
         mSetupDone = false;
         if (mServiceConn != null) {
             logDebug("Unbinding from service.");
-            if (mContext != null) mContext.unbindService(mServiceConn);
+            if (mContext != null && mIsBound) mContext.unbindService(mServiceConn);
         }
         mDisposed = true;
         mContext = null;

@@ -34,7 +34,8 @@ public class JumbleGame extends Game {
 		for(int ii = 0; ii < solutionArr.length; ii++) {
 			// any non-word character
 			// For a -, the char before should be ' ' otherwise it's in a word
-			if(((solutionArr[ii] < 'A' || solutionArr[ii] > 'Z') && solutionArr[ii] != '\'') || (solutionArr[ii] == '-' && solutionArr[ii-1] == ' ')) {
+			// Or if we're at the end of the
+			if(((solutionArr[ii] < 'A' || solutionArr[ii] > 'Z') && solutionArr[ii] != '\'') || ii == solutionArr.length - 1) {
 				
 				puzzleArr[ii] = solutionArr[ii];
 				answerArr[ii] = solutionArr[ii];
@@ -42,10 +43,17 @@ public class JumbleGame extends Game {
 					start++;
 				}
 				else {
-					end = ii - 1;
+					// If we're a the end of the string and it's not punctuation
+					if(ii == solutionArr.length -1 && solutionArr[ii] > 'A' && solutionArr[ii] < 'Z')
+						end = ii;
+					else
+						end = ii - 1;
 					mixupWord(start, end, puzzleArr, solutionArr);
 					start = ii+1;
 				}
+			}
+			else if(solutionArr[ii] == '\'') {
+				answerArr[ii] = solutionArr[ii];
 			}
 		}
 		

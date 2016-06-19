@@ -88,7 +88,10 @@ public class JumbleActivity extends GameActivity {
 						//if we aren't deleting
 						if(res != 0 && res != '<' && res != '>') {
 							curChar++;
+							if(curChar == mGame.getSolutionArr().length)
+								curChar = 0;
 							gameChanged = true;
+
 							//advance the highlight to the next word character
 							while(!isWordChar(mGame.getSolutionArr(), curChar)) {
 								curChar++;

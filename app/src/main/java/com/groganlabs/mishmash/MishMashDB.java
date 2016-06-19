@@ -22,30 +22,30 @@ public class MishMashDB extends SQLiteOpenHelper {
 	public static final String DB_NAME = "mishMashDb";
 	
 	private static final String GAME_TABLE = "phrase";
-	private static final String GAME_TABLE_ID = "phrase_id";
+	private static final String GAME_TABLE_ID = "_id";
 	private static final String COL_COMPLETED = "completed";
-	private static final String COL_ELIGABLE = "eligable_for";
+	private static final String COL_ELIGIBLE = "eligible_for";
 	private static final String COL_GAME = "phrase";
 	private static final String COL_PACK = "pack";
 	
 	private static final String PACK_TABLE = "game_pack";
-	private static final String PACK_ID	= "id";
+	private static final String PACK_ID	= "_id";
 	private static final String PACK_NAME = "name";
 	private static final String PACK_DESC = "description";
 	private static final String PACK_PURCHASED = "purchased";
 	
 	private static final String ACTIVE_GAME_TABLE = "active_game";
-	private static final String ACTIVE_GAME_ID = "id";
+	private static final String ACTIVE_GAME_ID = "_id";
 	private static final String ACTIVE_GAME_GAME_ID = "game_id";
 	private static final String ACTIVE_GAME_GAME = "game_mask";
 	private static final String ACTIVE_GAME_ANSWER = "user_answer";
 	private static final String ACTIVE_GAME_SOLUTION = "solution";
 	private static final String ACTIVE_GAME_PUZZLE = "puzzle";
 	
-	/*private static final String GAME_TABLE_CREATE = "create table " + GAME_TABLE +
+	private static final String GAME_TABLE_CREATE = "create table " + GAME_TABLE +
 			"(" + GAME_TABLE_ID + " integer primary key, " +
 			COL_PACK + " integer, " +
-			COL_ELIGABLE + " integer default 7, " + 
+			COL_ELIGIBLE + " integer default 7, " + 
 			COL_COMPLETED + " integer default 0, " +
 			COL_GAME + " varchar);";
 	
@@ -61,30 +61,26 @@ public class MishMashDB extends SQLiteOpenHelper {
 			ACTIVE_GAME_GAME + " varchar, " +
 			ACTIVE_GAME_ANSWER + " varchar, " +
 			ACTIVE_GAME_SOLUTION + " varchar, " + 
-			ACTIVE_GAME_PUZZLE + " varchar);";*/
+			ACTIVE_GAME_PUZZLE + " varchar);";
 
-	private static final String GAME_TABLE_CREATE = "create table phrase(phrase_id integer primary key, pack integer, eligable_for integer default 7, completed integer default 0, phrase varchar);";
-	private static final String PACK_TABLE_CREATE = "create table game_pack(id integer primary key, name varchar, description varchar, purchased integer);";
-	private static final String ACTIVE_TABLE_CREATE = "create table active_game(id integer primary key, game_id integer, game_mask varchar, user_answer varchar, solution varchar, puzzle varchar);";
+	/*private static final String GAME_TABLE_CREATE = "create table phrase(_id integer primary key, phrase varchar, pack integer, completed integer default 0, eligible_for integer default 7);";
+	private static final String PACK_TABLE_CREATE = "create table game_pack(_id integer primary key, name varchar, description varchar, purchased integer);";
+	private static final String ACTIVE_TABLE_CREATE = "create table active_game(_id integer primary key, game_id integer, game_mask varchar, user_answer varchar, solution varchar, puzzle varchar);";*/
 	private Context mContext;
 
 	public MishMashDB(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, version);
-		Log.d("db", "starting up the db");
 		mContext = context;
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		Log.d("db", "building tables");
-		Log.d("db", GAME_TABLE_CREATE);
+		//db.execSQL("create table phrase(_id integer primary key, phrase varchar, pack integer, completed integer default 0, eligible_for integer default 7);");
+		//         "create table phrase(_id integer primary key, phrase varchar, pack integer, completed integer default 0, eligible_for integer default 7);"
 		db.execSQL(GAME_TABLE_CREATE);
-		Log.d("db", PACK_TABLE_CREATE);
 		db.execSQL(PACK_TABLE_CREATE);
-		Log.d("db", ACTIVE_TABLE_CREATE);
 		db.execSQL(ACTIVE_TABLE_CREATE);
-		Log.d("db", "tables built");
 
 		String[] packNames = mContext.getResources().getStringArray(R.array.availablePackNames);
 		String[] packDesc = mContext.getResources().getStringArray(R.array.availablePackDescs);
@@ -140,7 +136,7 @@ public class MishMashDB extends SQLiteOpenHelper {
 		String[] cols = {COL_GAME, GAME_TABLE_ID};
 		Log.d("db", "starting to build the query");
 		StringBuilder where = new StringBuilder();
-		where.append("(" + COL_ELIGABLE + " & " + game.getGameType() + ") = " + game.getGameType());
+		where.append("(" + COL_ELIGIBLE + " & " + game.getGameType() + ") = " + game.getGameType());
 		Log.d("db", where.toString());
 		//if isset game.gameId && gameId > 0
 		// see
