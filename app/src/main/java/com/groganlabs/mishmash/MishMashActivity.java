@@ -14,7 +14,6 @@ public class MishMashActivity extends Activity implements OnClickListener {
 	TextView jumble;
 	TextView settings;
 	
-	IabHelper mHelper;
 	Boolean helperSuccess;
     
     /** Called when the activity is first created. */
@@ -23,8 +22,8 @@ public class MishMashActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        // Part of the in-app billing stuff
-        String apiKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjyuCKHP8kRzC5uwfzanHTcDY25k5c98u2KiByFhFZDiaauxICsffOy9Ijpj8glj+VaVf261TvdkIkuqDEXBqRegrF2yDlvgZfceNINqL0EMJsJdIFSGiXXnirWEE3A4j6LT0HOjSif1UBDPXalnC+/CTc1C4QyBxTRJUpzERuEfQ34XtNaCJ6d9biH3XSiS2PRa87bdaTG3Dc5LaSqY+mtYHT3J2lP0FgbTQSYkmIJ7kG6iskcSZn/LsFAY4ZGTrCQE99SCDYiA8MQBk/oWZ7EcnEmDIYflWXsnS5TIbtV7Wz18QlsvBmNHryfw91SC7TqB8Bd/YP6Pqm0iX7ZhXUwIDAQAB";
+        // Old billing methods
+        /*String apiKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjyuCKHP8kRzC5uwfzanHTcDY25k5c98u2KiByFhFZDiaauxICsffOy9Ijpj8glj+VaVf261TvdkIkuqDEXBqRegrF2yDlvgZfceNINqL0EMJsJdIFSGiXXnirWEE3A4j6LT0HOjSif1UBDPXalnC+/CTc1C4QyBxTRJUpzERuEfQ34XtNaCJ6d9biH3XSiS2PRa87bdaTG3Dc5LaSqY+mtYHT3J2lP0FgbTQSYkmIJ7kG6iskcSZn/LsFAY4ZGTrCQE99SCDYiA8MQBk/oWZ7EcnEmDIYflWXsnS5TIbtV7Wz18QlsvBmNHryfw91SC7TqB8Bd/YP6Pqm0iX7ZhXUwIDAQAB";
         mHelper = new IabHelper(this, apiKey);
         // only for dev, change to false for production
         mHelper.enableDebugLogging(true, "mHelper");
@@ -44,7 +43,7 @@ public class MishMashActivity extends Activity implements OnClickListener {
         	    
         	}
         });
-        
+        */
         //get inventory purchased by player
         
         //make sure database is up to date
@@ -79,11 +78,12 @@ public class MishMashActivity extends Activity implements OnClickListener {
 			startActivity(i);
 		}
 	}
-	
+
+	/*
 	@Override
 	public void onDestroy() {
 	   super.onDestroy();
 	   if (mHelper != null) mHelper.dispose();
 	   mHelper = null;
-	}
+	}*/
 }
