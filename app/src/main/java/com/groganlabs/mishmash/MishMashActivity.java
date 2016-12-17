@@ -59,6 +59,8 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 			mHelper.queryInventoryAsync(mGotInventoryListener);
 		} catch (IabHelper.IabAsyncInProgressException e) {
 			Log.d("billing", "Problem getting purchases");
+		} catch (Exception e) {
+			Log.d("billing", "a different problem");
 		}
 
 

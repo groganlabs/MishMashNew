@@ -118,8 +118,8 @@ public class DropQuoteView extends View {
 			}
 		}
 		
-		Log.d("DropView", "game length = "+game.getLength());
-		Log.d("DropView", "actualCols = " + actualCols);
+		//Log.d("DropView", "game length = "+game.getLength());
+		//Log.d("DropView", "actualCols = " + actualCols);
 		
 		game.initializeLetterCols(actualCols, gameRows);
 		letterRows = 0;
@@ -134,8 +134,8 @@ public class DropQuoteView extends View {
 	protected void onDraw(Canvas canvas) {
 		float charWidth, charPadding;
 		Paint current;
-		Log.d("DropView", "gameRows = "+gameRows);
-		Log.d("DropView", "letterRows = "+letterRows);
+		//Log.d("DropView", "gameRows = "+gameRows);
+		//Log.d("DropView", "letterRows = "+letterRows);
 		DropQuoteGame game = ((DropQuoteActivity)mContext).getGame();
 		if(game.letterCols == null) {
 			setupLetterCols(getMeasuredWidth(), getMeasuredHeight());
@@ -209,17 +209,17 @@ public class DropQuoteView extends View {
 
 	public Boolean touched(float x, float y) {
 		// view was touched in the character columns
-		Log.d("DropView", "x = "+x);
-		Log.d("DropView", "y = "+y);
+		//Log.d("DropView", "x = "+x);
+		//Log.d("DropView", "y = "+y);
 		if(y < letterRows * sqSize()) {
-			Log.d("DropView", "In the letter columns");
+			//Log.d("DropView", "In the letter columns");
 			// There's no square selected
 			if(mHighlighted == -1) return false;
 			
 			int row = letterRows -(int) Math.ceil(y/sqSize());
 			int col = (int) (x/(sqSize() + lineWidth));
-			Log.d("DropView", "row = "+ row);
-			Log.d("DropView", "col = " + col);
+			//Log.d("DropView", "row = "+ row);
+			//Log.d("DropView", "col = " + col);
 			// The touch was in a different column than the selected square
 			if(col != mHighlighted % actualCols) return false;
 			
@@ -257,18 +257,18 @@ public class DropQuoteView extends View {
 		// view was touched in the squares
 		else if(y < (letterRows * (mFontSize + 2*sqPad) + 
 				gameRows * (mFontSize + 2*sqPad + lineWidth))) {
-			Log.d("DropView", "In the game board");
+			//Log.d("DropView", "In the game board");
 			DropQuoteGame game = ((DropQuoteActivity)mContext).mGame;
 			int row = (int) ((y - (sqSize() * letterRows) - lineWidth)/(sqSize() + lineWidth));
 			int col = (int) (x/(sqSize() + lineWidth));
 			int index = row * actualCols + col;
-			Log.d("DropView", "row = "+ row);
-			Log.d("DropView", "col = " + col);
+			//Log.d("DropView", "row = "+ row);
+			//Log.d("DropView", "col = " + col);
 			if(index >= game.getLength() || index < 0 || col >= actualCols || game.dqSolution[index] == ' ') return false;
 			
 			mHighlighted = index;
 			
-			Log.d("DropView", "mHighlighted = "+mHighlighted);
+			//Log.d("DropView", "mHighlighted = "+mHighlighted);
 			return true;
 		}
 		return false;
