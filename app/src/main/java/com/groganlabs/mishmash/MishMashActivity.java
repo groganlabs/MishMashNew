@@ -21,11 +21,12 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 	TextView dropQuotes;
 	TextView jumble;
 	TextView settings;
+	TextView packList;
 	
 	Boolean helperSuccess;
 
 	IabHelper mHelper;
-	IInAppBillingService mService;
+	//IInAppBillingService mService;
 
     /** Called when the activity is first created. */
     @Override
@@ -64,17 +65,17 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 		}
 
 
-        //make sure database is up to date
-        
         cryptogram = (TextView) findViewById(R.id.cryptoBtn);
         dropQuotes = (TextView) findViewById(R.id.dropBtn);
         jumble = (TextView) findViewById(R.id.jumbleBtn);
         settings = (TextView) findViewById(R.id.settingsBtn);
+		packList = (TextView)  findViewById(R.id.packList);
         
         cryptogram.setOnClickListener(this);
         dropQuotes.setOnClickListener(this);
         jumble.setOnClickListener(this);
         settings.setOnClickListener(this);
+		packList.setOnClickListener(this);
     }
 
 	public void onClick(View v) {
@@ -93,6 +94,10 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 		}
 		else if(v.getId() == R.id.settingsBtn) {
 			i = new Intent(this, MishMashSettings.class);
+			startActivity(i);
+		}
+		else if(v.getId() == R.id.packList) {
+			i = new Intent(this, PackListActivity.class);
 			startActivity(i);
 		}
 	}
@@ -129,11 +134,15 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 		}
 	};
 
-	/*
+
 	@Override
 	public void onDestroy() {
 	   super.onDestroy();
-	   if (mHelper != null) mHelper.dispose();
-	   mHelper = null;
-	}*/
+	   if (mHelper != null) try {
+		   mHelper.dispose();
+	   } catch (IabHelper.IabAsyncInProgressException e) {
+		   e.printStackTrace();
+	   }
+		mHelper = null;
+	}
 }

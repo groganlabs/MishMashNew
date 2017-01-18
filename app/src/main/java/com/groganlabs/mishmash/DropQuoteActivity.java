@@ -26,7 +26,7 @@ public class DropQuoteActivity extends GameActivity {
 			try {
 				mGame = new DropQuoteGame(gameId, packId, this);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// TODO Need error for can't load game
 				// need to create dialog, "error loading selected game.
 				// Tap ok to load a random game or cancel to go back"
 			}

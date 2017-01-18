@@ -15,7 +15,6 @@ public class CryptogramGame extends Game {
 	
 	public CryptogramGame(int game, int pack, Context context) throws Exception {
 		super(game, pack, context);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public CryptogramGame(Parcel parcel) {

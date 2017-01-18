@@ -77,8 +77,7 @@ public abstract class GameActivity extends AppCompatActivity implements
 	 * For now, that means going to game management.
 	 */
 	public void onNoMoreNeutralClick(DialogFragment dialog) {
-		// TODO: start the game management activity once
-		// I've built it
+		// TODO: start the game management activity
 	}
 	
 	/**

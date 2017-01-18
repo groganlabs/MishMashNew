@@ -29,7 +29,7 @@ public class JumbleActivity extends GameActivity {
 			try {
 				mGame = new JumbleGame(gameId, packId, this);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// TODO Need to create can't load game dialog
 				// need to create dialog, "error loading selected game.
 				// Tap ok to load a random game or cancel to go back"
 			}

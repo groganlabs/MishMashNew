@@ -149,7 +149,6 @@ public abstract class Game implements Parcelable {
 	}
 	
 	protected void finishGame() {
-		// TODO remove game from active table if it's there
 		dbHelper.removeActiveGame(this);
 		dbHelper.markGameWon(this);
 	}

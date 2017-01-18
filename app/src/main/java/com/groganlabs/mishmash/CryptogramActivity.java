@@ -26,7 +26,7 @@ public class CryptogramActivity extends GameActivity {
 			try {
 				mGame = new CryptogramGame(gameId, packId, this);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// TODO Create dialog for "error loading game"
 				// need to create dialog, "error loading selected game.
 				// Tap ok to load a random game or cancel to go back"
 			}

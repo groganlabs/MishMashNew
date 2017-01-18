@@ -176,7 +176,7 @@ private Paint mTextPaint;
 			
 			lastSpace = gameStr.lastIndexOf(' ', mRowIndices[mNumRows] + maxCharsPerRow);
 			mNumRows++;
-			// TODO: insert a - into the arrays & string in case of hyphenation?
+			// insert a - into the arrays & string in case of hyphenation?
 			if(lastSpace == -1) {
 				mRowIndices[mNumRows] = mRowIndices[mNumRows-1] + maxCharsPerRow;
 			}

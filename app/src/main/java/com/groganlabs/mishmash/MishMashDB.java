@@ -1,5 +1,7 @@
 package com.groganlabs.mishmash;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 import android.content.ContentValues;
@@ -33,14 +35,17 @@ public class MishMashDB extends SQLiteOpenHelper {
 	private static final String PACK_NAME = "name";
 	private static final String PACK_DESC = "description";
 	private static final String PACK_PURCHASED = "purchased";
+	private static final String PACK_NUMGAMES = "num_games";
+	private static final String PACK_SKU = "sku";
 	
 	private static final String ACTIVE_GAME_TABLE = "active_game";
 	private static final String ACTIVE_GAME_ID = "_id";
 	private static final String ACTIVE_GAME_GAME_ID = "game_id";
-	private static final String ACTIVE_GAME_GAME = "game_mask";
+	private static final String ACTIVE_GAME_TYPE = "game_mask";
 	private static final String ACTIVE_GAME_ANSWER = "user_answer";
 	private static final String ACTIVE_GAME_SOLUTION = "solution";
 	private static final String ACTIVE_GAME_PUZZLE = "puzzle";
+	private static final String ACTIVE_GAME_DATE = "saved";
 	
 	private static final String GAME_TABLE_CREATE = "create table " + GAME_TABLE +
 			"(" + GAME_TABLE_ID + " integer primary key, " +
@@ -53,19 +58,19 @@ public class MishMashDB extends SQLiteOpenHelper {
 			"(" + PACK_ID + " integer primary key, " +
 			PACK_NAME + " varchar, " +
 			PACK_DESC + " varchar, " +
+			PACK_NUMGAMES + " integer, " +
+			PACK_SKU + " integer, " +
 			PACK_PURCHASED + " integer);";
 	
 	private static final String ACTIVE_TABLE_CREATE = "create table " + ACTIVE_GAME_TABLE +
 			"(" + ACTIVE_GAME_ID + " integer primary key, " +
-			ACTIVE_GAME_GAME_ID + " integer, " + 
-			ACTIVE_GAME_GAME + " varchar, " +
+			ACTIVE_GAME_GAME_ID + " integer, " +
+			ACTIVE_GAME_TYPE + " integer, " +
 			ACTIVE_GAME_ANSWER + " varchar, " +
-			ACTIVE_GAME_SOLUTION + " varchar, " + 
+			ACTIVE_GAME_SOLUTION + " varchar, " +
+			ACTIVE_GAME_DATE + " date, " +
 			ACTIVE_GAME_PUZZLE + " varchar);";
 
-	/*private static final String GAME_TABLE_CREATE = "create table phrase(_id integer primary key, phrase varchar, pack integer, completed integer default 0, eligible_for integer default 7);";
-	private static final String PACK_TABLE_CREATE = "create table game_pack(_id integer primary key, name varchar, description varchar, purchased integer);";
-	private static final String ACTIVE_TABLE_CREATE = "create table active_game(_id integer primary key, game_id integer, game_mask varchar, user_answer varchar, solution varchar, puzzle varchar);";*/
 	private Context mContext;
 
 	public MishMashDB(Context context, String name, CursorFactory factory,
@@ -90,10 +95,11 @@ public class MishMashDB extends SQLiteOpenHelper {
 
 		packVals.put(PACK_NAME, packNames[0]);
 		packVals.put(PACK_DESC, packDesc[0]);
+		packVals.put(PACK_NUMGAMES, 4);
 		packVals.put(PACK_PURCHASED, 1);
 		db.insert(PACK_TABLE, null, packVals);
 
-		packVals.put(PACK_PURCHASED, 1);
+		packVals.put(PACK_PURCHASED, 0);
 		for(int ii = 1; ii < packNames.length; ii++) {
 			Log.d("db", "inserting game " + packNames[ii]);
 			packVals.put(PACK_NAME, packNames[ii]);
@@ -114,11 +120,18 @@ public class MishMashDB extends SQLiteOpenHelper {
 			values.put(COL_GAME, games2[ii]);
 			db.insert(GAME_TABLE, null, values);
 		}
+
+		String games3[] = mContext.getResources().getStringArray(R.array.packThree);
+		values.put(COL_PACK, 3);
+		for(int ii = 0; ii < games3.length; ii++) {
+			values.put(COL_GAME, games3[ii]);
+			db.insert(GAME_TABLE, null, values);
+		}
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -133,15 +146,26 @@ public class MishMashDB extends SQLiteOpenHelper {
 		//TODO: use the game's properties to determine whether we need a random game or pack
 		// also, need to figure out which packs to use
 		SQLiteDatabase db = getWritableDatabase();
-		String[] cols = {COL_GAME, GAME_TABLE_ID};
-		Log.d("db", "starting to build the query");
-		StringBuilder where = new StringBuilder();
-		where.append("(" + COL_ELIGIBLE + " & " + game.getGameType() + ") = " + game.getGameType());
-		Log.d("db", where.toString());
 		//if isset game.gameId && gameId > 0
-		// see
-		where.append(" AND " + GAME_TABLE_ID + " NOT IN (SELECT " + ACTIVE_GAME_GAME_ID + " FROM " +
+		if(game.gameId > 0) {
+			// see if it's in the active table, if so get it from there otherwise get it as usual
+			String select = "SELECT * from " + ACTIVE_GAME_TABLE + " where " + ACTIVE_GAME_GAME_ID + " = ? AND " + ACTIVE_GAME_TYPE + " = ?";
+			String[] params = {String.valueOf(game.gameId), String.valueOf(game.gameType)};
+			Cursor res = db.rawQuery(select, params);
+			if(res.getCount() > 0) {
+				res.moveToLast();
+			}
+			return true;
+		}
+
+		Log.d("db", "starting to build the query");
+		String select = "SELECT " + COL_GAME + ", " + GAME_TABLE + "." +GAME_TABLE_ID + " FROM " + GAME_TABLE + ", " + PACK_TABLE + " ";
+		StringBuilder where = new StringBuilder();
+		where.append("WHERE (" + COL_ELIGIBLE + " & " + game.getGameType() + ") = " + game.getGameType());
+		Log.d("db", where.toString());
+		where.append(" AND " + GAME_TABLE + "." + GAME_TABLE_ID + " NOT IN (SELECT " + ACTIVE_GAME_GAME_ID + " FROM " +
 				ACTIVE_GAME_TABLE + ")");
+		where.append(" AND " + COL_PACK + " = " + PACK_TABLE + "." + PACK_ID + " AND " + PACK_PURCHASED + " = 1 ");
 		Log.d("db", where.toString());
 		//if we aren't reusing or replaying games, add COL_COMPLETED  = 0
 		if(!sharedPref.getBoolean("PREF_REUSE", true) && !sharedPref.getBoolean("PREF_REPLAY", false))
@@ -152,7 +176,7 @@ public class MishMashDB extends SQLiteOpenHelper {
 		//if we're reusing and replaying, it doesn't matter 
 		Log.d("db", where.toString());
 		Log.d("db", "Where: "+where.toString());
-		Cursor res = db.query(GAME_TABLE, cols, where.toString(), null, null, null, null);
+		Cursor res = db.rawQuery(select + where.toString(), null);
 		if(res.getCount() == 0)
 			return false;
 		
@@ -189,4 +213,37 @@ public class MishMashDB extends SQLiteOpenHelper {
 		}*/
 		
 	}
+
+	public void saveGame(Game game) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+
+		SQLiteDatabase db = getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(ACTIVE_GAME_GAME_ID, game.gameId);
+		values.put(ACTIVE_GAME_PUZZLE, String.valueOf(game.getPuzzleArr()));
+		values.put(ACTIVE_GAME_ANSWER, String.valueOf(game.getAnswerArr()));
+		values.put(ACTIVE_GAME_SOLUTION, game.getSolution());
+		values.put(ACTIVE_GAME_DATE, df.format(date));
+		db.insert(ACTIVE_GAME_TABLE, null, values);
+		db.close();
+	}
+
+	public Cursor getSavedGames(Game game) {
+		SQLiteDatabase db = getReadableDatabase();
+		String query = "select " + ACTIVE_GAME_ID + ", " + ACTIVE_GAME_GAME_ID + ", " + ACTIVE_GAME_ANSWER + ", " +
+				ACTIVE_GAME_PUZZLE + ", " + ACTIVE_GAME_SOLUTION + " from " + ACTIVE_GAME_TABLE;
+		Cursor cur = db.rawQuery(query, null);
+		return cur;
+	}
+
+	public Cursor getPacks() {
+		SQLiteDatabase db = getReadableDatabase();
+		Cursor cur;
+		String query = "SELECT " + PACK_NAME + ", " + PACK_DESC + ", " + PACK_NUMGAMES + ", " + PACK_PURCHASED  + ", " + PACK_ID + ", " + PACK_SKU + " FROM " + PACK_TABLE;
+		cur = db.rawQuery(query, null);
+		return cur;
+	}
+
+
 }

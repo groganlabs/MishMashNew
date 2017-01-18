@@ -19,11 +19,24 @@
         <item>The Third Pack</item>
     </string-array>
 
+    <integer-array name="availablePackCounts">
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+    </integer-array>
+
     <string-array name="packTwo">
         <item>A PUZZLE FOR THE SECOND PACK</item>
         <item>ANOTHER PUZZLE FOR THE SECOND PACK</item>
         <item>THERE IS A THEME FOR THESE SECOND PACK ITEMS</item>
         <item>YET ANOTHER PUZZLE FOR THE SECOND PACK</item>
+    </string-array>
+
+    <string-array name="packThree">
+        <item>THE FIRST PUZZLE FOR THE THIRD PACK</item>
+        <item>ANOTHER PUZZLE FOR THE THIRD PACK</item>
+        <item>THIS IS STILL A PUZZLE IN THE THIRD PACK.</item>
+        <item>THE FOURTH PUZZLE IN THE THIRD PACK</item>
     </string-array>
 
 </resources>
