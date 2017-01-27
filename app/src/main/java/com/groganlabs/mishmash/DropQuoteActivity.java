@@ -145,6 +145,7 @@ public class DropQuoteActivity extends GameActivity {
 	public void showHint() {
 		int hint = mGame.getHint();
 		mView.setHighlight(hint);
+		mView.setHint(hint);
 		mView.invalidate();
 		if(mGame.gameWon())
 			gameWon();

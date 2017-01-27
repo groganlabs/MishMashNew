@@ -217,6 +217,7 @@ public class MishMashDB extends SQLiteOpenHelper {
 	public void saveGame(Game game) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
+		String where = ACTIVE_GAME_GAME_ID + " = " + game.gameId + " AND " + ACTIVE_GAME_TYPE + " = " + game.gameType;
 
 		SQLiteDatabase db = getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -225,7 +226,13 @@ public class MishMashDB extends SQLiteOpenHelper {
 		values.put(ACTIVE_GAME_ANSWER, String.valueOf(game.getAnswerArr()));
 		values.put(ACTIVE_GAME_SOLUTION, game.getSolution());
 		values.put(ACTIVE_GAME_DATE, df.format(date));
-		db.insert(ACTIVE_GAME_TABLE, null, values);
+		values.put(ACTIVE_GAME_TYPE, game.gameType);
+
+		// try updating where gameId and gameType
+		// if 0 returned, insert
+		if(db.update(ACTIVE_GAME_TABLE, values, where, null) == 0) {
+			db.insert(ACTIVE_GAME_TABLE, null, values);
+		}
 		db.close();
 	}
 
@@ -245,5 +252,16 @@ public class MishMashDB extends SQLiteOpenHelper {
 		return cur;
 	}
 
+	/**
+	 * Sets all packs' purchased column to 0
+	 * Should only be run after successfully querying
+	 * Google Play.
+	 */
+	public void clearOwnedPacks() {
+		SQLiteDatabase db = getWritableDatabase();
+		ContentValues cv = new ContentValues();
+		cv.put(PACK_PURCHASED, 0);
+		db.update(PACK_TABLE, cv, null, null);
+	}
 
 }

@@ -229,8 +229,9 @@ public class DropQuoteView extends View {
 			if(((DqChar)((ArrayList)game.letterCols.get(col)).get(row)).getAnswer() == mHighlighted) {
 				// remove the answer from the square
 				game.answerArr[mHighlighted] = 0;
-				mHighlighted = -1;
+				// mHighlighted = -1;
 				((DqChar)((ArrayList)game.letterCols.get(col)).get(row)).clearAnswer();
+				return true;
 			}
 			
 			// There was no letter in the spot touched
@@ -273,6 +274,20 @@ public class DropQuoteView extends View {
 		}
 		return false;
 		
+	}
+
+	public void setHint(int ii) {
+		DropQuoteGame game = ((DropQuoteActivity)mContext).mGame;
+		char c = game.answerArr[ii];
+		int col = ii % actualCols;
+		for(int jj = 0; jj < game.letterCols.get(col).size(); jj++) {
+			if(c == ((DqChar)((ArrayList)game.letterCols.get(col)).get(jj)).getLetter() &&
+					!((DqChar)((ArrayList)game.letterCols.get(col)).get(jj)).isAnswerSet()) {
+				((DqChar)((ArrayList)game.letterCols.get(col)).get(jj)).setAnswer(ii);
+				return;
+			}
+		}
+		return;
 	}
 	
 	private float sqSize() {

@@ -34,7 +34,6 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        // Old billing methods
         String apiKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjyuCKHP8kRzC5uwfzanHTcDY25k5c98u2KiByFhFZDiaauxICsffOy9Ijpj8glj+VaVf261TvdkIkuqDEXBqRegrF2yDlvgZfceNINqL0EMJsJdIFSGiXXnirWEE3A4j6LT0HOjSif1UBDPXalnC+/CTc1C4QyBxTRJUpzERuEfQ34XtNaCJ6d9biH3XSiS2PRa87bdaTG3Dc5LaSqY+mtYHT3J2lP0FgbTQSYkmIJ7kG6iskcSZn/LsFAY4ZGTrCQE99SCDYiA8MQBk/oWZ7EcnEmDIYflWXsnS5TIbtV7Wz18QlsvBmNHryfw91SC7TqB8Bd/YP6Pqm0iX7ZhXUwIDAQAB";
         mHelper = new IabHelper(this, apiKey);
         // only for dev, change to false for production
@@ -47,22 +46,21 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 					Log.d("mHelper", "Problem setting up in app billing: " + result);
         	    	return;
         	    }
-        	    
+
+				//get inventory purchased by player
+				try {
+					mHelper.queryInventoryAsync(mGotInventoryListener);
+				} catch (IabHelper.IabAsyncInProgressException e) {
+					Log.d("billing", "Problem getting purchases");
+				} catch (Exception e) {
+					Log.d("billing", "a different problem");
+				}
         	    /*// just in case it was disposed of while we waited
         	    if(mHelper == null) {
         	    	return;
         	    }*/
         	}
         });
-
-        //get inventory purchased by player
-		try {
-			mHelper.queryInventoryAsync(mGotInventoryListener);
-		} catch (IabHelper.IabAsyncInProgressException e) {
-			Log.d("billing", "Problem getting purchases");
-		} catch (Exception e) {
-			Log.d("billing", "a different problem");
-		}
 
 
         cryptogram = (TextView) findViewById(R.id.cryptoBtn);
