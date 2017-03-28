@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:text="@string/helpButtonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cryptoBack1"
+            android:onClick="backTap"/>
+        <TextView
+            android:text="@string/helpCrypto1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpCrypto2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpCrypto3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpNextLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView11"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpArrows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpGameWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpNotWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView13"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView14"
+            android:padding="@dimen/help_text_padding"/>
+        <Button
+            android:text="@string/helpButtonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cryptoBack2"
+            android:onClick="backTap"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/menu_restart" android:showAsAction="never" android:title="@string/menuRestartTitle"></item>
-    <item android:id="@+id/menu_new_game" android:showAsAction="never" android:title="@string/menuNewGameTitle"></item>
-    <item android:id="@+id/menu_hint" android:showAsAction="never" android:title="@string/menuHintTitle"></item>
-    <item android:id="@+id/menu_main" android:showAsAction="never" android:title="@string/menuMainTitle"></item>
-    <item android:id="@+id/menu_settings" android:showAsAction="never" android:title="@string/menuSettingsTitle"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_restart" app:showAsAction="never" android:title="@string/menuRestartTitle"></item>
+    <item android:id="@+id/menu_new_game" app:showAsAction="never" android:title="@string/menuNewGameTitle"></item>
+    <item android:id="@+id/menu_hint" app:showAsAction="never" android:title="@string/menuHintTitle"></item>
+    <item android:id="@+id/menu_main" app:showAsAction="never" android:title="@string/menuMainTitle"></item>
+    <item android:id="@+id/menu_settings" app:showAsAction="never" android:title="@string/menuSettingsTitle"></item>
+    <item android:id="@+id/menu_help" app:showAsAction="never" android:title="Help"></item>
     
 
 </menu>

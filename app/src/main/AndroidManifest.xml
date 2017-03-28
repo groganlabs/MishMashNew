@@ -42,6 +42,9 @@
         <activity
             android:name=".PackListActivity"
             android:theme="@style/Theme.AppCompat"/>
+        <activity
+            android:name=".HelpActivity"
+            android:theme="@style/Theme.AppCompat"/>
     </application>
 
 </manifest>

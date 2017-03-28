@@ -90,11 +90,12 @@ public class JumbleView extends View {
 		//We want the characters to be a minimum size
 		mFontSize = 18 * mContext.getResources().getDisplayMetrics().density;
 		mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mTextPaint.setColor(0xffffffff);
+		mTextPaint.setColor(getResources().getColor(R.color.text));
 		
 		mBgPaint = new Paint();
 		//mBgPaint.setColor(0xff00ffff);
-		mBgPaint.setColor(Color.BLUE);
+		//mBgPaint.setColor(Color.BLUE);
+		mBgPaint.setColor(getResources().getColor(R.color.highlight));
 		mBgPaint.setStyle(Paint.Style.FILL);
 	}
 	

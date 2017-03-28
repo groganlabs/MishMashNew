@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:text="@string/helpButtonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jumbleBack1"
+            android:onClick="backTap"/>
+        <TextView
+            android:text="@string/helpJumble1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpJumble2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView17"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpJumble3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView18"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpNextLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView21"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpArrows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView20"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView22"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpGameWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView19"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpNotWon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView23"
+            android:padding="@dimen/help_text_padding"/>
+
+        <TextView
+            android:text="@string/helpHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView24"
+            android:padding="@dimen/help_text_padding"/>
+        <Button
+            android:text="@string/helpButtonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jumbleBack2"
+            android:onClick="backTap"/>
+
+    </LinearLayout>
+</ScrollView>
