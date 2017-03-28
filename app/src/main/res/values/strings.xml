@@ -21,6 +21,8 @@
     <string name="replayPrefSum">Replay solutions that have already been completed, even for the same game type.</string>
     <string name="reusePref">Reuse Solutions for Different Games</string>
     <string name="replayPref">Reuse Solutions for the Same Game</string>
+    <string name="packMgmtPref">Buy more game packs</string>
+    <string name="packMgmtPrefSum">Played all the available puzzles? Want more? Tap here to buy more puzzles and keep playing.</string>
     <string name="menuRestart">restartGame</string>
     <string name="menuRestartTitle">Restart Game</string>
     <string name="menuNewGame">newGame</string>
@@ -33,5 +35,29 @@
     <string name="menuSettingsTitle">Settings</string>
     <string name="selectAll">Select All</string>
     <string name="selectNone">Select None</string>
-
+    <string name="helpJumble1">The letters of each word are scrambled up.</string>
+    <string name="helpJumble2">Since the scrambling is random, small words might stay in the correct order. In larger words some letters might still be in the correct spot.</string>
+    <string name="helpJumble3">To enter a letter, tap that spot you want to put it in. The spot will be highlighted.</string>
+    <string name="helpTapKeyboard">Then tap the letter on the keyboard.</string>
+    <string name="helpNextLetter">The next letter will automatically be highlighted, you can simply tap the letter on the keyboard to place a new letter on that spot.</string>
+    <string name="helpArrows">You can use the arrows in the keyboard to move the highlight to the side. </string>
+    <string name="helpDelete">The _ will delete an entered letter in the highlight.</string>
+    <string name="helpGameWon">When all of the letters are correctly placed the game will let you know that you won and will give you a choice to (1) play another game, (2) go to the main menu or (3) stay on the screen so you can see the solution.</string>
+    <string name="helpNotWon">If you\'ve filled in all the letters but don\'t get a popup that means you have an error.</string>
+    <string name="helpHint">If you get stuck you can use a hint to fill in a random letter.</string>
+    <string name="helpCrypto1">Each letter has been swapped with another – if E = B, then all Es in the puzzle are B, but that doesn\'t mean that B = E.</string>
+    <string name="helpCrypto2">To insert a letter into the solution, tap that spot. That spot and all others that correspond to the same letter will be highlighted.</string>
+    <string name="helpCrypto3">Then tap the letter on the keyboard you want to insert. That letter will be placed in all of the highlighted spaces.</string>
+    <string name="helpDrop1">The letters of each column have been moved to the top and scrambled. To solve the puzzle, determine which row each letter “drops” down to.</string>
+    <string name="helpDrop2">Start by selecting a square, which will then be highlighted.</string>
+    <string name="helpDrop3">Next select a letter from the same column at the top of the puzzle. The letter will be crossed off to show that it\'s been used.</string>
+    <string name="helpDrop4">A letter that\'s been crossed off can still be tapped. It will remove that letter from the old location and placed in the new.</string>
+    <string name="helpDrop5">You can also change the letter in an already filled square by selecting it and tapping a different top letter. Tapping the same top letter will delete it from the square.</string>
+    <string name="helpStartPlay">To play a game, select the type of game (ie Cryptogram) from the main menu. It will automatically load a random game for you to play.</string>
+    <string name="helpStartNoMore">If you get a message saying that there are no more games, there are two setting that can be checked to continue playing. Settings can be accessed from the no more games popup, main menu or from the drop down menu in any game ([menu icon] or hardware button, depending on your phone).</string>
+    <string name="helpStartReuseDifferent"><b>Reuse solutions for different games</b> – If you solved “Mary had a little lamb” as a jumble, you can see it again in a drop quote or cryptogram. Checked by default.</string>
+    <string name="helpStartReuseSame"><b>Reuse solutions for the same game</b> – If you solved “Mary had a little lamb” as a jumble, you can see it again in a jumble. Not checked by default.</string>
+    <string name="helpStartBuy">You can also buy more puzzles. A link to the game pack screen can be found on the main menu, settings menu and the no more games message.</string>
+    <string name="helpStartBack">In any game you can press the back button to go back to the main menu.</string>
+    <string name="helpButtonBack">Back</string>
 </resources>

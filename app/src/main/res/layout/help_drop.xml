@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:text="@string/helpButtonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dropBack1"
+                android:onClick="backTap"/>
+
+            <TextView
+                android:text="@string/helpDrop1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpDrop2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView25"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpDrop3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView26"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpDrop4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView27"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpDrop5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView28"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpGameWon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView29"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpNotWon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView30"
+                android:padding="@dimen/help_text_padding"/>
+
+            <TextView
+                android:text="@string/helpHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView31"
+                android:padding="@dimen/help_text_padding"/>
+            <Button
+                android:text="@string/helpButtonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dropBack2"
+                android:onClick="backTap"/>
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+</LinearLayout>

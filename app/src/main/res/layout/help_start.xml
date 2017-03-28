@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <Button
+        android:text="@string/helpButtonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startBack1"
+        android:onClick="backTap"/>
+    <TextView
+        android:text="@string/helpStartPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:padding="@dimen/help_text_padding"/>
+
+    <TextView
+        android:text="@string/helpStartNoMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:padding="@dimen/help_text_padding"/>
+
+    <TextView
+        android:text="@string/helpStartReuseDifferent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:padding="@dimen/help_text_padding"/>
+
+    <TextView
+        android:text="@string/helpStartReuseSame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:padding="@dimen/help_text_padding"/>
+
+    <TextView
+        android:text="@string/helpStartBuy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:padding="@dimen/help_text_padding"/>
+    <Button
+        android:text="@string/helpButtonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startBack2"
+        android:onClick="backTap"/>
+</LinearLayout>
+</ScrollView>

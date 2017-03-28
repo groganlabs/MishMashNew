@@ -15,6 +15,8 @@ import com.groganlabs.mishmash.util.IabBroadcastReceiver.IabBroadcastListener;
 import com.groganlabs.mishmash.util.IabException;
 import com.groganlabs.mishmash.util.Inventory;
 
+import org.w3c.dom.Text;
+
 public class MishMashActivity extends Activity implements IabBroadcastListener, OnClickListener {
 	
 	TextView cryptogram;
@@ -22,6 +24,7 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 	TextView jumble;
 	TextView settings;
 	TextView packList;
+	TextView help;
 	
 	Boolean helperSuccess;
 
@@ -68,12 +71,14 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
         jumble = (TextView) findViewById(R.id.jumbleBtn);
         settings = (TextView) findViewById(R.id.settingsBtn);
 		packList = (TextView)  findViewById(R.id.packList);
+		help = (TextView) findViewById(R.id.help);
         
         cryptogram.setOnClickListener(this);
         dropQuotes.setOnClickListener(this);
         jumble.setOnClickListener(this);
         settings.setOnClickListener(this);
 		packList.setOnClickListener(this);
+		help.setOnClickListener(this);
     }
 
 	public void onClick(View v) {
@@ -96,6 +101,10 @@ public class MishMashActivity extends Activity implements IabBroadcastListener, 
 		}
 		else if(v.getId() == R.id.packList) {
 			i = new Intent(this, PackListActivity.class);
+			startActivity(i);
+		}
+		else if(v.getId() == R.id.help) {
+			i = new Intent(this, HelpActivity.class);
 			startActivity(i);
 		}
 	}

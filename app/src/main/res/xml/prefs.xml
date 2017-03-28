@@ -22,4 +22,15 @@
         />
     </PreferenceCategory>
 
+    <Preference
+        android:title="@string/packMgmtPref"
+        android:summary="@string/packMgmtPrefSum">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.groganlabs.mishmash"
+            android:targetClass="com.groganlabs.mishmash.PackListActivity"
+        />
+    </Preference>
+
+
 </PreferenceScreen>
